@@ -1,6 +1,7 @@
 - hosts: rocket-server
   vars:
     rocket_path: /opt/rocket
+    rocket_root_url: https://chat.example.com
   pre_tasks:
     - apt:
         update_cache: yes

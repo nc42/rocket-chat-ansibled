@@ -9,7 +9,7 @@ rocketchat:
   image: rocketchat/rocket.chat:latest
   environment:
     - MONGO_URL=mongodb://db:27017/rocketchat
-    - ROOT_URL=https://chat.inumio.com
+    - ROOT_URL={{ rocket_root_url }}
     - Accounts_UseDNSDomainCheck=True
   links:
     - db:db
