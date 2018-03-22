@@ -1,0 +1,2 @@
+- src: https://github.com/bpetit/ansible-role-docker-host.git
+  name: docker-host

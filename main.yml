@@ -1,0 +1,19 @@
+- hosts: rocket-server
+  vars:
+    rocket_path: /opt/rocket
+  pre_tasks:
+    - apt:
+        update_cache: yes
+  roles:
+    - role: docker-host
+  post_tasks:
+    - name: ensure rocket path exists
+      file:
+        state: directory
+        path: "{{ rocket_path }}"
+    - name: push docker-compose template
+      template:
+        src: templates/docker-compose.yml.j2
+        dest: "{{ rocket_path }}/docker-compose.yml"
+    - name: run docker compose
+      shell: "cd {{ rocket_path }} && docker-compose up -d"
